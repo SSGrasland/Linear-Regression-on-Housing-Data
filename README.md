@@ -1,285 +1,102 @@
-# Phase 2 Project Description
-
-Another module down - you're almost half way there!
-
-![awesome](https://raw.githubusercontent.com/learn-co-curriculum/dsc-phase-2-project-v2-3/main/halfway-there.gif)
-
-All that remains in Phase 2 is to put your newfound data science skills to use with a large project!
-
-In this project description, we will cover:
-
-* Project Overview: the project goal, audience, and dataset
-* Deliverables: the specific items you are required to produce for this project
-* Grading: how your project will be scored
-* Getting Started: guidance for how to begin working
-
-## Project Overview
-
-For this project, you will use multiple linear regression modeling to analyze house sales in a northwestern county.
-
-### Business Problem
-
-It is up to you to define a stakeholder and business problem appropriate to this dataset.
-
-If you are struggling to define a stakeholder, we recommend you complete a project for a real estate agency that helps homeowners buy and/or sell homes. A business problem you could focus on for this stakeholder is the need to provide advice to homeowners about how home renovations might increase the estimated value of their homes, and by what amount.
-
-### The Data
-
-This project uses the King County House Sales dataset, which can be found in  `kc_house_data.csv` in the data folder in this assignment's GitHub repository. The description of the column names can be found in `column_names.md` in the same folder. As with most real world data sets, the column names are not perfectly described, so you'll have to do some research or use your best judgment if you have questions about what the data means.
-
-It is up to you to decide what data from this dataset to use and how to use it. If you are feeling overwhelmed or behind, we recommend you **ignore** some or all of the following features:
-
-* `date`
-* `view`
-* `sqft_above`
-* `sqft_basement`
-* `yr_renovated`
-* `zipcode`
-* `lat`
-* `long`
-* `sqft_living15`
-* `sqft_lot15`
-
-### Key Points
-
-* **Your goal in regression modeling is to yield findings to support relevant recommendations. Those findings should include a metric describing overall model performance as well as at least two regression model coefficients.** As you explore the data and refine your stakeholder and business problem definitions, make sure you are also thinking about how a linear regression model adds value to your analysis. "The assignment was to use linear regression" is not an acceptable answer! You can also use additional statistical techniques other than linear regression, so long as you clearly explain why you are using each technique.
-
-* **You should demonstrate an iterative approach to modeling.** This means that you must build multiple models. Begin with a basic model, evaluate it, and then provide justification for and proceed to a new model. After you finish refining your models, you should provide 1-3 paragraphs in the notebook discussing your final model.
-
-* **Data visualization and analysis are no longer explicit project requirements, but they are still very important.** In Phase 1, your project stopped earlier in the CRISP-DM process. Now you are going a step further, to modeling. Data visualization and analysis will help you build better models and tell a better story to your stakeholders.
-
-## Deliverables
-
-There are three deliverables for this project:
-
-* A **non-technical presentation**
-* A **Jupyter Notebook**
-* A **GitHub repository**
-
-The deliverables requirements are almost the same as in the Phase 1 Project, and you can review those extended descriptions [here](https://github.com/learn-co-curriculum/dsc-phase-1-project-v2-3#deliverables). In general, everything is the same except the "Data Visualization" and "Data Analysis" requirements have been replaced by "Modeling" and "Regression Results" requirements.
-
-### Non-Technical Presentation
-
-Recall that the non-technical presentation is a slide deck presenting your analysis to ***business stakeholders***, and should be presented live as well as submitted in PDF form on Canvas.
-
-We recommend that you follow this structure, although the slide titles should be specific to your project:
-
-1. Beginning
-    - Overview
-    - Business and Data Understanding
-2. Middle
-    - **Modeling**
-    - **Regression Results**
-3. End
-    - Recommendations
-    - Next Steps
-    - Thank you
-
-Make sure that your discussion of modeling and regression results is geared towards a non-technical audience! Assume that their prior knowledge of regression modeling is minimal. You don't need to explain how linear regression works, but you should explain why linear regression is useful for the problem context. Make sure you translate any metrics or coefficients into their plain language implications.
-
-The graded elements for the non-technical presentation are the same as in [Phase 1](https://github.com/learn-co-curriculum/dsc-phase-1-project-v2-3#deliverables).
-
-### Jupyter Notebook
-
-Recall that the Jupyter Notebook is a notebook that uses Python and Markdown to present your analysis to a ***data science audience***. You will submit the notebook in PDF format on Canvas as well as in `.ipynb` format in your GitHub repository.
-
-The graded elements for the Jupyter Notebook are:
-
-* Business Understanding
-* Data Understanding
-* Data Preparation
-* **Modeling**
-* **Regression Results**
-* Code Quality
-
-### GitHub Repository
-
-Recall that the GitHub repository is the cloud-hosted directory containing all of your project files as well as their version history.
-
-The requirements are the same as in [Phase 1](https://github.com/learn-co-curriculum/dsc-phase-1-project-v2-3#github-repository), except for the required sections in the `README.md`.
-
-For this project, the `README.md` file should contain:
-
-* Overview
-* Business and Data Understanding
-  * Explain your stakeholder audience here
-* **Modeling**
-* **Regression Results**
-* Conclusion
-
-Just like in Phase 1, the `README.md` file should be the bridge between your non technical presentation and the Jupyter Notebook. It should not contain the code used to develop your analysis, but should provide a more in-depth explanation of your methodology and analysis than what is described in your presentation slides.
-
-## Grading
-
-***To pass this project, you must pass each project rubric objective.*** The project rubric objectives for Phase 2 are:
-
-1. Attention to Detail
-2. Statistical Communication
-3. Data Preparation Fundamentals
-4. Linear Modeling
-
-### Attention to Detail
-
-Just like in Phase 1, this rubric objective is based on your completion of checklist items. ***In Phase 2, you need to complete 70% (7 out of 10) or more of the checklist elements in order to pass the Attention to Detail objective.***
-
-**NOTE THAT THE PASSING BAR IS HIGHER IN PHASE 2 THAN IT WAS IN PHASE 1!**
-
-The standard will increase with each Phase, until you will be required to complete all elements to pass Phase 5 (Capstone).
-
-#### Exceeds Objective
-
-80% or more of the project checklist items are complete
-
-#### Meets Objective (Passing Bar)
-
-70% of the project checklist items are complete
-
-#### Approaching Objective
-
-60% of the project checklist items are complete
-
-#### Does Not Meet Objective
-
-50% or fewer of the project checklist items are complete
-
-### Statistical Communication
-
-Recall that communication is one of the key data science "soft skills". In Phase 2, we are specifically focused on Statistical Communication. We define Statistical Communication as:
-
-> Communicating **results of statistical analyses** to diverse audiences via writing and live presentation
-
-Note that this is the same as in Phase 1, except we are replacing "basic data analysis" with "statistical analyses".
-
-High-quality Statistical Communication includes rationale, results, limitations, and recommendations:
-
-* **Rationale:** Explaining why you are using statistical analyses rather than basic data analysis
-  * For example, why are you using regression coefficients rather than just a graph?
-  * What about the problem or data is suitable for this form of analysis?
-  * For a data science audience, this includes your reasoning for the changes you applied while iterating between models.
-* **Results:** Describing the overall model metrics and feature coefficients
-  * You need at least one overall model metric (e.g. r-squared or RMSE) and at least two feature coefficients.
-  * For a business audience, make sure you connect any metrics to real-world implications. You do not need to get into the details of how linear regression works.
-  * For a data science audience, you don't need to explain what a metric is, but make sure you explain why you chose that particular one.
-* **Limitations:** Identifying the limitations and/or uncertainty present in your analysis
-  * This could include p-values/alpha values, confidence intervals, assumptions of linear regression, missing data, etc.
-  * In general, this should be more in-depth for a data science audience and more surface-level for a business audience.
-* **Recommendations:** Interpreting the model results and limitations in the context of the business problem
-  * What should stakeholders _do_ with this information?
-
-#### Exceeds Objective
-
-Communicates the rationale, results, limitations, and specific recommendations of statistical analyses
-
-> See above for extended explanations of these terms.
-
-#### Meets Objective (Passing Bar)
-
-Successfully communicates the results of statistical analyses without any major errors
-
-> The minimum requirement is to communicate the _results_, meaning at least one overall model metric (e.g. r-squared or RMSE) as well as at least two feature coefficients. See the Approaching Objective section for an explanation of what a "major error" means.
-
-#### Approaching Objective
-
-Communicates the results of statistical analyses with at least one major error
-
-> A major error means that some aspect of your explanation is fundamentally incorrect. For example, if a feature coefficient is negative and you say that an increase in that feature results in an increase of the target, that would be a major error. Another example would be if you say that the feature with the highest coefficient is the "most statistically significant" while ignoring the p-value. One more example would be reporting a coefficient that is not statistically significant, rather than saying "no statistically significant linear relationship was found"
-
-> "**If a coefficient's t-statistic is not significant, don't interpret it at all.** You can't be sure that the value of the corresponding parameter in the underlying regression model isn't really zero." _DeVeaux, Velleman, and Bock (2012), Stats: Data and Models, 3rd edition, pg. 801_. Check out [this website](https://web.ma.utexas.edu/users/mks/statmistakes/TOC.html) for extensive additional examples of mistakes using statistics.
-
-> The easiest way to avoid making a major error is to have someone double-check your work. Reach out to peers on Slack and ask them to confirm whether your interpretation makes sense!
-
-#### Does Not Meet Objective
-
-Does not communicate the results of statistical analyses
-
-> It is not sufficient to just display the entire results summary. You need to pull out at least one overall model metric (e.g. r-squared, RMSE) and at least two feature coefficients, and explain what those numbers mean.
-
-### Data Preparation Fundamentals
-
-We define this objective as:
-
-> Applying appropriate **preprocessing** and feature engineering steps to tabular data in preparation for statistical modeling
-
-The two most important components of preprocessing for the Phase 2 project are:
-
-* **Handling Missing Values:** Missing values may be present in the features you want to use, either encoded as `NaN` or as some other value such as `"?"`. Before you can build a linear regression model, make sure you identify and address any missing values using techniques such as dropping or replacing data.
-* **Handling Non-Numeric Data:** A linear regression model needs all of the features to be numeric, not categorical. For this project, ***be sure to pick at least one non-numeric feature and try including it in a model.*** You can identify that a feature is currently non-numeric if the type is `object` when you run `.info()` on your dataframe. Once you have identified the non-numeric features, address them using techniques such as ordinal or one-hot (dummy) encoding.
-
-There is no single correct way to handle either of these situations! Use your best judgement to decide what to do, and be sure to explain your rationale in the Markdown of your notebook.
-
-Feature engineering is encouraged but not required for this project.
-
-#### Exceeds Objective
-
-Goes above and beyond with data preparation, such as feature engineering or merging in outside datasets
-
-> One example of feature engineering could be using the `date` feature to create a new feature called `season`, which represents whether the home was sold in Spring, Summer, Fall, or Winter.
-
-> One example of merging in outside datasets could be finding data based on ZIP Code, such as household income or walkability, and joining that data with the provided CSV.
-
-#### Meets Objective (Passing Bar)
-
-Successfully prepares data for modeling, including converting at least one non-numeric feature into ordinal or binary data and handling missing data as needed
-
-> As a reminder, you can identify the non-numeric features by calling `.info()` on the dataframe and looking for type `object`.
-
-> Your final model does not necessarily need to include any features that were originally non-numeric, but you need to demonstrate your ability to handle this type of data.
-
-#### Approaching Objective
-
-Prepares some data successfully, but is unable to utilize non-numeric data
-
-> If you simply subset the dataframe to only columns with type `int64` or `float64`, your model will run, but you will not pass this objective.
-
-#### Does Not Meet Objective
-
-Does not prepare data for modeling
-
-### Linear Modeling
-
-According to [Kaggle's 2020 State of Data Science and Machine Learning Survey](https://www.kaggle.com/kaggle-survey-2020), linear and logistic regression are the most popular machine learning algorithms, used by 83.7% of data scientists. They are small, fast models compared to some of the models you will learn later, but have limitations in the kinds of relationships they are able to learn.
-
-In this project you are required to use linear regression as the primary statistical analysis, although you are free to use additional statistical techniques as appropriate.
-
-#### Exceeds Objective
-
-Goes above and beyond in the modeling process, such as recursive feature selection
-
-#### Meets Objective (Passing Bar)
-
-Successfully builds a baseline model as well as at least one iterated model, and correctly extracts insights from a final model without any major errors
-
-> We are looking for you to (1) create a baseline model, (2) iterate on that model, making adjustments that are supported by regression theory or by descriptive analysis of the data, and (3) select a final model and report on its metrics and coefficients
-
-> Ideally you would include written justifications for each model iteration, but at minimum the iterations must be _justifiable_
-
-> For an explanation of "major errors", see the description below
-
-#### Approaching Objective
-
-Builds multiple models with at least one major error
-
-> The number one major error to avoid is including the target as one of your features. For example, if the target is `price` you should NOT make a "price per square foot" feature, because that feature would not be available if you didn't already know the price.
-
-> Other examples of major errors include: using a target other than `price`, attempting only simple linear regression (not multiple linear regression), dropping multiple one-hot encoded columns without explaining the resulting baseline, or using a unique identifier (`id` in this dataset) as a feature.
-
-#### Does Not Meet Objective
-
-Does not build multiple linear regression models
-
-## Getting Started
-
-Please start by reviewing the contents of this project description. If you have any questions, please ask your instructor ASAP.
-
-Next, you will need to complete the [***Project Proposal***](#project_proposal) which must be reviewed by your instructor before you can continue with the project.
-
-Here are some suggestions for creating your GitHub repository:
-
-1. Fork the [Phase 2 Project Repository](https://github.com/learn-co-curriculum/dsc-phase-2-project-v2-3), clone it locally, and work in the `student.ipynb` file. Make sure to also add and commit a PDF of your presentation to your repository with a file name of `presentation.pdf`.
-2. Or, create a new repository from scratch by going to [github.com/new](https://github.com/new) and copying the data files from the Phase 2 Project Repository into your new repository.
-   - Recall that you can refer to the [Phase 1 Project Template](https://github.com/learn-co-curriculum/dsc-project-template) as an example structure
-   - This option will result in the most professional-looking portfolio repository, but can be more complicated to use. So if you are getting stuck with this option, try forking the project repository instead
-
-## Summary
-
-This is your first modeling project! Take what you have learned in Phase 2 to create a project with a more sophisticated analysis than you completed in Phase 1. You will build on these skills as we move into the predictive machine learning mindset in Phase 3. You've got this!
+# Using Linear Regression on Housing Data to Develop a Housing Communty
+#### By Salome Grasland
+ 
+## Business Understanding
+A result of the Covid pandemic is that people are now spending more time in their yards, especially those located in urban and suburban areas. The real estate development group, Steady, has approached us to help design a community of homes made for people who enjoy using their land to grow food, have bee hives, and raise chickens. Steady, wishes to build the community of homes in the most temperate zone of King County, Seattle. This kernel uses the King County Housing Dataset to create a Linear Regression Model that Steady can use to know what features the homes they build should contain in order to be financially successful.
+
+## Data Understanding
+For this kernel we will be using the King County Housing Dataset from Kaggle. This dataset includes homes sold between May 2014 and May 2015, features 21 columns, and over 21,000 entries. The dataset contains categorical and numerical columns, with data types of integers, objects, and floats. Some of the data types will need to be converted for our analysis. Three columns are missing data– view, waterfront, and yr_renovates– with the latter two missing more than 10% of their values. Null values will need to be dealt with before modeling.
+
+### Column Names and Descriptions for King County Data Set
+id - Unique identifier for a house
+date - Date house was sold
+price - Sale price (prediction target)
+bedrooms - Number of bedrooms
+bathrooms - Number of bathrooms
+sqft_living - Square footage of living space in the home
+sqft_lot - Square footage of the lot
+floors - Number of floors (levels) in house
+waterfront - Whether the house is on a waterfront
+view - Quality of view from house
+condition - How good the overall condition of the house is. Related to maintenance of house. See the King County Assessor Website for further explanation of each condition code
+grade - Overall grade of the house. Related to the construction and design of the house. See the King County Assessor Website for further explanation of each building grade code
+sqft_above - Square footage of house apart from basement
+sqft_basement - Square footage of the basement
+yr_built - Year when house was built
+yr_renovated - Year when house was renovated
+zipcode - ZIP Code used by the United States Postal Service
+lat - Latitude coordinate
+long - Longitude coordinate
+sqft_living15 - The square footage of interior housing living space for the nearest 15 neighbors
+sqft_lot15 - The square footage of the land lots of the nearest 15 neighbors
+ 
+There are over 21,000 entries in this dataset with three columns missing values (waterfront, view, and yr_renovated), we will need to adjust for missing values. There are also three different data types present: object, int64, and float64. We will have to adjust the datatypes in order to model the data.
+The homes in this dataset range in price from 78,000 USD to 7,700,000 USD. Some homes are older having been built as early as 1900 with the newest home having been built in 2015. This makes sense since the dataset is limited to homes sold in 2014 to 2015.
+## Data Preparation 
+We can see that yr_renovated and waterfront are missing more than 10% of their values. In order for our code to function properly we need to remove null values. In this case we will drop these two columns from the dataset.
+### Data Engineering
+In addition to our original dataset 3 columns were constructed: hardiness zones (‘zones’), square footage of lawn as a percent of total lot size (‘sqft_lawn_prct’), and square footage of lawn as a percent of total lot size for the nearest 15 homes (‘sqft_lawn_prct15’). The latter two columns were engineered based on values taken from the sqft_living and sqft_lot columns. The purpose of these columns is to focus on our clients specific issue– building homes that have usable outdoor space in a temperate area.
+ 
+#### King County Hardiness Zones
+A hardiness zone is an area that is defined as having certain annual minimum temperatures, a measure which is of concern to the survival of many plants and livestock. For this project we will be using the United States Department of Agriculture (USDA) Hardiness Zone map of King County and limiting the dataset to homes in zone 8b– King County’s most temperate zone. This is done by constructing a zone column based on values taken from the longitude column.
+ 
+ 
+## Data Analysis
+Our variables do not have a normal distribution and the scales are not consistent. Our independent variable ‘price’ has a significant positive skew which we will need to adjust before modeling.
+ 
+A heatmap of correlation was created to see what variables most correlated with our target variable price. This was also done to check for multicollinearity of features (i. E. if two variables are highly correlated with one another, like the number of bathrooms and bedrooms.) 
+ 
+We also wanted to check that the variables used for modeling passed the assumptions of linear regression. These assumptions are:
+-The variable should have a linear relationship with price.
+-The variable should be homoscedastic meaning that an equal amount of variance should be seen around the regression line.
+-There should be a normal distribution.
+ 
+
+## Modeling
+For modeling OLS regression was used and two values were looked at in the summary: R-squared and p-value. R-squared is a value that communicates how much of the variability around y ('price' in this case) can be explained by the model. P-value is used to check the null hypothesis, in this case the null hypothesis was that there is no relationship between price and a chosen variable, we wanted the p-value to fall below 0.05 so that the null hypothesis could be rejected.
+ 
+### Model 1
+The first model iterated looked at the most correlated features as well as sqft_lawn_prct because this value is of interest to our client.
+ 
+### Model 2
+In the second model we replace bathrooms with bedrooms because bathrooms had a high p-value. We need p-values below 0.05 in order to reject the null hypothesis.
+ 
+### Model 3
+In the third model we remove sqft_above because it is highly correlated (0.85) with sqft_living. We do not want to have multicollinearity of features in our model because we need to be able to indicate where variance is coming from.
+ 
+### Model 4
+For our final model we added the most correlated to price dummy variables 'grade_Excellent', 'view_NONE', 'view_EXCELLENT', and 'grade_Luxury'.
+ 
+### Final model
+Model 4 has the highest r-squared value at 0.546. R-squared is a value that communicates how much of the variability around y ('price' in this case) can be explained by the model. In this case it means that 54.6% of the variability in our model can be explained by the variable we included.
+ 
+### Interpreting Coefficients
+Since price, sqft_living, sqft_living15, and sqft_above were all log transformed we need to adjust the coefficients to accurately interpret them.
+ 
+#### Both dependent and independent variable are log transformed
+Since our independent variable ('price') and dependent variable ('sqft_living' and 'sqft_living15') were both log transformed we need to interpret sqft_living and sqft_living15 as a percent increase in the dependent variable for each 1% increase in price. The equation we will use for this is (1.01^x -1)*100 where x is the value of the coefficient.
+sqft_living = (1.01^0.543022 - 1)100 = 0.54%
+sqft_living15 = (1.01^0.421263 - 1)100 = 0.42%
+This means that every 1% increase in the price of the homes value we also see a 0.54% and 0.42% increase in the value of the sqft_living and sqft_living15.
+
+#### Only independent variable is log transformed
+Since the rest of our variables were not log transformed we can interpret a 1% increase in price increase or decrease the dependent variable by a (coefficient/100) units. The equation we will use for this is (x * log(1.10)) where x is the value of the coefficient.
+sqft_lawn_prct = (-0.368062 * log(1.01)) = -0.00159053347
+bedrooms = (-0.033695 * log(1.01)) = -0.0001456
+grade_Excellent = (0.528796 * log(1.01)) = 0.00228512517
+view_NONE = (-0.200450 * log(1.01)) = -0.00086621937
+view_EXCELLENT = (0.307521 * log(1.01)) = 0.00132891318
+grade_Luxury = (0.708721 * log(1.01)) = 0.00306264834
+This means that for every 1% increase in price our dependent variable decreases the value of sqft_lawn_prct by -0.0016%, bedrooms by -0.0001456, grade_Excellent increases by 0.00228512517, view_None decreases by -0.00086621937, view_EXCELLENT decreases by 0.00132891318, and grade_Luxury increases by 0.00306264834.
+
+## Evaluation
+### Validating the Model
+To evaluate the performance of our model it was cross-validated using a train test split. Cross validating the model allows us to know how well the model would serve if new data was presented. The model with the best R-squared value was fitted in a train-test split.
+ 
+Root-mean-square error (RMSE) is a measure that shows the deviation between values predicted by a model and the observed values. The deviations are called residuals when performed over sample data and errors when performed on out-of-sample data. It is a measure of accuracy to compare the predictive abilities of different models for a particular dataset. In this case, the Train Root Mean Squared Error was 0.38425 and the Test Root Mean Squared Error was 0.3854 meaning the model generated has good predictive abilities and would perform in a similar fashion if new data was presented. 
+
+## Conclusion
+Our client, Steady, is building a neighborhood of homes for people who want to use their yards. Our analysis indicates that the best predictor of a house’s price in King County, Seattle is 'sqft_lawn_prct', 'sqft_living',  'sqft_living15',  'bedrooms',  'grade_Excellent', 'view_EXCELLENT',  'grade_Luxury',  'view_NONE'. We also discovered that certain features had a positive impact on price, such as, sqft_living and sqft_living15, and an excellent grade and view. Some limitation of our model is that features were log transformed to satisfy assumptions of regression. This means that any new data used would have to be processed in the same way. The model also uses housing data from 2014 to 2015. Meaning that as housing trends change the model may no longer accurately reflect current housing patterns. 
+
+### Recommendation
+Our recommendation to Steady is to build a neighborhood of equally larger homes with excellent views and excellent grades. An excellent grade means a home has a custom design and high quality cabinet work, wood trim, and highest quality materials. We recommend large homes because for each $10,000 increase in price for the home we see a $5,400 increase in value of the squarefoot of living space. We recommend that all the homes be equally large because the data shows that for each $10,000 increase in price for the 15 nearest homes we also see a $4200 increase in square foot of living for the 15 nearest homes. We also want to warn Steady that increasing lawn size does decrease home value. 
