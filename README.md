@@ -37,9 +37,7 @@ In addition to our original dataset 3 columns were constructed: hardiness zones 
 #### King County Hardiness Zones
 A hardiness zone is an area that is defined as having certain annual minimum temperatures, a measure which is of concern to the survival of many plants and livestock. For this project we will be using the United States Department of Agriculture (USDA) Hardiness Zone map of King County and limiting the dataset to homes in zone 8b– King County’s most temperate zone. This is done by constructing a zone column based on values taken from the longitude column.
 A hardiness zone is an area that is defined as having certain annual minimum temperatures, a measure which is of concern to the survival of many plants and livestock. For this project we will be using the United States Department of Agriculture (USDA) Hardiness Zone map of King County and limiting the dataset to homes in zone 8b– King County’s most temperate zone. This is done by constructing a zone column based on values taken from the longitude column.
-**King County Hardiness Zones Map**   
-Zone 8b is shown in red on the map. 
-![Screenshot%20%2817%29.jpg](attachment:Screenshot%20%2817%29.jpg)
+
  
 ## Data Analysis
 Our variables do not have a normal distribution and the scales are not consistent. Our independent variable ‘price’ has a significant positive skew which we will need to adjust before modeling.
