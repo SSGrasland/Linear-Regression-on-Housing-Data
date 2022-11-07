@@ -1,12 +1,9 @@
 # Using Linear Regression on Housing Data to Develop a Housing Communty
-#### By Salome Grasland
- 
+#### By Salome Grasland¶
 ## Business Understanding
 A result of the Covid pandemic is that people are now spending more time in their yards, especially those located in urban and suburban areas. The real estate development group, Steady, has approached us to help design a community of homes made for people who enjoy using their land to grow food, have bee hives, and raise chickens. Steady, wishes to build the community of homes in the most temperate zone of King County, Seattle. This kernel uses the King County Housing Dataset to create a Linear Regression Model that Steady can use to know what features the homes they build should contain in order to be financially successful.
-
 ## Data Understanding
 For this kernel we will be using the King County Housing Dataset from Kaggle. This dataset includes homes sold between May 2014 and May 2015, features 21 columns, and over 21,000 entries. The dataset contains categorical and numerical columns, with data types of integers, objects, and floats. Some of the data types will need to be converted for our analysis. Three columns are missing data– view, waterfront, and yr_renovates– with the latter two missing more than 10% of their values. Null values will need to be dealt with before modeling.
-
 ### Column Names and Descriptions for King County Data Set
 id - Unique identifier for a house
 date - Date house was sold
@@ -29,31 +26,36 @@ lat - Latitude coordinate
 long - Longitude coordinate
 sqft_living15 - The square footage of interior housing living space for the nearest 15 neighbors
 sqft_lot15 - The square footage of the land lots of the nearest 15 neighbors
- 
+
 There are over 21,000 entries in this dataset with three columns missing values (waterfront, view, and yr_renovated), we will need to adjust for missing values. There are also three different data types present: object, int64, and float64. We will have to adjust the datatypes in order to model the data.
 The homes in this dataset range in price from 78,000 USD to 7,700,000 USD. Some homes are older having been built as early as 1900 with the newest home having been built in 2015. This makes sense since the dataset is limited to homes sold in 2014 to 2015.
 ## Data Preparation 
 We can see that yr_renovated and waterfront are missing more than 10% of their values. In order for our code to function properly we need to remove null values. In this case we will drop these two columns from the dataset.
 ### Data Engineering
-In addition to our original dataset 3 columns were constructed: hardiness zones (‘zones’), square footage of lawn as a percent of total lot size (‘sqft_lawn_prct’), and square footage of lawn as a percent of total lot size for the nearest 15 homes (‘sqft_lawn_prct15’). The latter two columns were engineered based on values taken from the sqft_living and sqft_lot columns. The purpose of these columns is to focus on our clients specific issue– building homes that have usable outdoor space in a temperate area.
+In addition to our original dataset 3 columns were constructed: hardiness zones (‘zones’), square footage of lawn (‘sqft_lawn’), and square footage of lawn for the nearest 15 homes (‘sqft_lawn15’). The latter two columns were engineered based on values taken from the sqft_living and sqft_lot columns. The purpose of these columns is to focus on our clients specific issue– building homes that have usable outdoor space in a temperate area.
  
 #### King County Hardiness Zones
 A hardiness zone is an area that is defined as having certain annual minimum temperatures, a measure which is of concern to the survival of many plants and livestock. For this project we will be using the United States Department of Agriculture (USDA) Hardiness Zone map of King County and limiting the dataset to homes in zone 8b– King County’s most temperate zone. This is done by constructing a zone column based on values taken from the longitude column.
- 
+A hardiness zone is an area that is defined as having certain annual minimum temperatures, a measure which is of concern to the survival of many plants and livestock. For this project we will be using the United States Department of Agriculture (USDA) Hardiness Zone map of King County and limiting the dataset to homes in zone 8b– King County’s most temperate zone. This is done by constructing a zone column based on values taken from the longitude column.
+**King County Hardiness Zones Map**   
+Zone 8b is shown in red on the map. 
+![Screenshot%20%2817%29.jpg](attachment:Screenshot%20%2817%29.jpg)
  
 ## Data Analysis
 Our variables do not have a normal distribution and the scales are not consistent. Our independent variable ‘price’ has a significant positive skew which we will need to adjust before modeling.
  
 A heatmap of correlation was created to see what variables most correlated with our target variable price. This was also done to check for multicollinearity of features (i. E. if two variables are highly correlated with one another, like the number of bathrooms and bedrooms.) 
  
+ 
 We also wanted to check that the variables used for modeling passed the assumptions of linear regression. These assumptions are:
 -The variable should have a linear relationship with price.
 -The variable should be homoscedastic meaning that an equal amount of variance should be seen around the regression line.
 -There should be a normal distribution.
  
+ 
 
 ## Modeling
-For modeling OLS regression was used and two values were looked at in the summary: R-squared and p-value. R-squared is a value that communicates how much of the variability around y ('price' in this case) can be explained by the model. P-value is used to check the null hypothesis, in this case the null hypothesis was that there is no relationship between price and a chosen variable, we wanted the p-value to fall below 0.05 so that the null hypothesis could be rejected.
+For modeling OLS regression was used and two values were looked at in the summary: R-squared and p-value. R-squared is a value that communicates how much of the variability around y ('price' in this case) can be explained by the model.  P-value is used to check the null hypothesis, in this case the null hypothesis was that there is no relationship between price and a chosen variable, if the p-value does not fall below 0.05 the null hypothesis cannot be rejected. 
  
 ### Model 1
 The first model iterated looked at the most correlated features as well as sqft_lawn_prct because this value is of interest to our client.
@@ -68,35 +70,73 @@ In the third model we remove sqft_above because it is highly correlated (0.85) w
 For our final model we added the most correlated to price dummy variables 'grade_Excellent', 'view_NONE', 'view_EXCELLENT', and 'grade_Luxury'.
  
 ### Final model
-Model 4 has the highest r-squared value at 0.546. R-squared is a value that communicates how much of the variability around y ('price' in this case) can be explained by the model. In this case it means that 54.6% of the variability in our model can be explained by the variable we included.
+Model 4 has the highest r-squared value at 0.546. R-squared is a value that communicates how much of the variability around y ('price' in this case) can be explained by the model. In this case it means that 54.6% of the variability in our model can be explained by the variable we included. However, since this model does contain several log transformed variables we will go ahead and run it again using data that hasn't been log transformed to simplify interpreting coefficients. 
  
-### Interpreting Coefficients
-Since price, sqft_living, sqft_living15, and sqft_above were all log transformed we need to adjust the coefficients to accurately interpret them.
- 
-#### Both dependent and independent variable are log transformed
-Since our independent variable ('price') and dependent variable ('sqft_living' and 'sqft_living15') were both log transformed we need to interpret sqft_living and sqft_living15 as a percent increase in the dependent variable for each 1% increase in price. The equation we will use for this is (1.01^x -1)*100 where x is the value of the coefficient.
-sqft_living = (1.01^0.543022 - 1)100 = 0.54%
-sqft_living15 = (1.01^0.421263 - 1)100 = 0.42%
-This means that every 1% increase in the price of the homes value we also see a 0.54% and 0.42% increase in the value of the sqft_living and sqft_living15.
+## Interpreting Coefficients 
 
-#### Only independent variable is log transformed
-Since the rest of our variables were not log transformed we can interpret a 1% increase in price increase or decrease the dependent variable by a (coefficient/100) units. The equation we will use for this is (x * log(1.10)) where x is the value of the coefficient.
-sqft_lawn_prct = (-0.368062 * log(1.01)) = -0.00159053347
-bedrooms = (-0.033695 * log(1.01)) = -0.0001456
-grade_Excellent = (0.528796 * log(1.01)) = 0.00228512517
-view_NONE = (-0.200450 * log(1.01)) = -0.00086621937
-view_EXCELLENT = (0.307521 * log(1.01)) = 0.00132891318
-grade_Luxury = (0.708721 * log(1.01)) = 0.00306264834
-This means that for every 1% increase in price our dependent variable decreases the value of sqft_lawn_prct by -0.0016%, bedrooms by -0.0001456, grade_Excellent increases by 0.00228512517, view_None decreases by -0.00086621937, view_EXCELLENT decreases by 0.00132891318, and grade_Luxury increases by 0.00306264834.
+
+sqft_living
+USD263.19
+sqft_living15
+USD113.04
+sqft_lawn  
+USD-1.05
+bedrooms 
+USD-47,017
+view_EXCELLENT
+USD330,266
+view_NONE
+USD-67,619
+grade_Excellent
+USD595,692
+grade_Luxury
+USD1,139,040
+
+
+
+Interpreting our coefficients we can see for each additional square foot a home has increases the price by 263.19USD. Sqft_living15 takes the average size of the 15 nearest homes. We can see that when the average size of these homes goes up a square foot it increases the overall value by 113.04USD. Each additional bedroom also decreases the value of the home by 47,017USD. 
+
+Of concern to our client is the lawn’s size effect on home value. Here we can see that each additional square foot of lawn decreases the price of the home by 1.05USD. Having an excellent view also makes a substantial difference–adding 330,300USD to the home, whereas no view actually decreases the home's value by 67,620USD. 
+
+Quality or grade of the home has a significant impact on price, with an excellent grade adding 595,692USD and a luxury grade adding 1,139,040USD to the value of the home. 
+
+
 
 ## Evaluation
 ### Validating the Model
-To evaluate the performance of our model it was cross-validated using a train test split. Cross validating the model allows us to know how well the model would serve if new data was presented. The model with the best R-squared value was fitted in a train-test split.
- 
-Root-mean-square error (RMSE) is a measure that shows the deviation between values predicted by a model and the observed values. The deviations are called residuals when performed over sample data and errors when performed on out-of-sample data. It is a measure of accuracy to compare the predictive abilities of different models for a particular dataset. In this case, the Train Root Mean Squared Error was 0.38425 and the Test Root Mean Squared Error was 0.3854 meaning the model generated has good predictive abilities and would perform in a similar fashion if new data was presented. 
+To evaluate the performance of our model it was cross-validated using a train test split. Cross validating the model allows us to know how well the model would serve if new data was presented. 
 
+
+### RMSE
+Root-mean-square error (RMSE) is a measure that shows the deviation between values predicted by a model and the observed values. The deviations are called residuals when performed over sample data and they are called errors when performed on out-of-sample data. It is a measure of accuracy to compare the predictive abilities of different models for a particular dataset. It is one of the fastest methods of analysis and not as sensitive to outliers. Here we use scikits mean_squared_error feature to obtain the value. 
+Of concern is overfitting the model-- this occurs when the model fits the noise of our data, but performs poorly when presented with new data. A good indicator of overfitting is if the training dataset is significantly better than the test dataset. In this case, the Train Root Mean Squared Error was 250,804USD and the Test Root Mean Squared Error was 261,532USD seeing as how our data ranges from 78,000USD to 7,700,000USD a difference of 10,728USD between the train and test RMSE means overfitting is not of significant concern. 
 ## Conclusion
-Our client, Steady, is building a neighborhood of homes for people who want to use their yards. Our analysis indicates that the best predictor of a house’s price in King County, Seattle is 'sqft_lawn_prct', 'sqft_living',  'sqft_living15',  'bedrooms',  'grade_Excellent', 'view_EXCELLENT',  'grade_Luxury',  'view_NONE'. We also discovered that certain features had a positive impact on price, such as, sqft_living and sqft_living15, and an excellent grade and view. Some limitation of our model is that features were log transformed to satisfy assumptions of regression. This means that any new data used would have to be processed in the same way. The model also uses housing data from 2014 to 2015. Meaning that as housing trends change the model may no longer accurately reflect current housing patterns. 
-
+Our client, Steady, is building a neighborhood of homes for people who want to use their yards. Our analysis indicates that the best predictor of a house’s price in King County, Seattle in zone 8b is 'sqft_lawn', 'sqft_living',  'sqft_living15',  'bedrooms',  'grade_Excellent', 'view_EXCELLENT',  'grade_Luxury',  'view_NONE'. We discovered that certain features had a positive impact on price, such as, the square footage of the home, the square footage of the nearest 15 homes, an excellent or luxury grade, and an excellent view. While features like square footage of lawn, number of bedrooms, and no view had a negative impact on price. Some limitations of our model is that this housing data is from May 2014 to 2015. Meaning that as housing trends change the model may no longer accurately reflect current housing patterns. 
 ### Recommendation
-Our recommendation to Steady is to build a neighborhood of equally larger homes with excellent views and excellent grades. An excellent grade means a home has a custom design and high quality cabinet work, wood trim, and highest quality materials. We recommend large homes because for each $10,000 increase in price for the home we see a $5,400 increase in value of the squarefoot of living space. We recommend that all the homes be equally large because the data shows that for each $10,000 increase in price for the 15 nearest homes we also see a $4200 increase in square foot of living for the 15 nearest homes. We also want to warn Steady that increasing lawn size does decrease home value. 
+Our recommendation to Steady is to build a neighborhood of equally larger homes (~2,000 square feet), of excellent quality (quality is also referred to as grade), and an excellent view. An excellent grade means a home has a custom design and high quality cabinet work, wood trim, and highest quality materials. An excellent grade can increase the value of home by 330,266USD 
+
+We recommend building a community of large luxury homes that are at least 2,000 square feet. Large homes are recommended because each additional square foot the home has adds 263.19USD to its value. We also recommend that all the homes built be of similar size. Our analysis shows that when the average size of the 15 nearest homes goes up a square foot it increases their overall value by 113.04USD. This means that a neighborhood of larger homes would be more valuable than a neighborhood of variable size homes. We would also warn our client that fewer bedrooms is favorable because each additional bedroom has the potential to devalue the home by 47,017USD. 
+
+Of concern to our client is the lawn’s size effect on home value. Our analysis shows that each additional square foot of lawn decreases the price of the home by 1.05USD. When designing the layout of the lot Steady needs to carefully consider how much lawn space there is as it will slightly decrease the value of the home. Having an excellent view also makes a substantial difference–adding 330,300USD to the value of the home, whereas no view actually decreases the home's value by 67,620USD. 
+## For More Information 
+For additional info, contact Salome Grasland at salome.grasland@ncf.edu
+## Repository Structure
+├── README.md                           <- The top-level README for reviewers of this project    
+├── Phase 2 Project.ipynb               <- Narrative documentation of analysis in Jupyter notebook     
+├── Phase 2 Project Presentation.pdf    <- PDF version of project presentation     
+├── data                                <- Both sourced externally and generated from code     
+└── images                              <- Both sourced externally and generated from code      
+
+ 
+## References 
+https://www.kaggle.com/code/henriqueyamahata/boston-housing-with-linear-regression      
+https://www.kaggle.com/code/madislemsalu/predicting-housing-prices-in-king-county-usa    
+https://github.com/mojo-flat/Linear-Regression-GP-2/blob/main/lin_reg_gp_2_solution.ipynb     
+https://data.library.virginia.edu/interpreting-log-transformations-in-a-linear-model/#:~:text=Interpret%20the%20coefficient%20as%20the,variable%20increases%20by%20about%200.20%25.   
+https://towardsdatascience.com/encoding-categorical-variables-one-hot-vs-dummy-encoding-6d5b9c46e2db#:~:text=Dummy%20encoding%20also%20uses%20dummy,uses%20k%2D1%20dummy%20variables.       
+https://towardsdatascience.com/busted-assumptions-3e224b7706eb    
+https://data.library.virginia.edu/interpreting-log-transformations-in-a-linear-model/     
+https://info.kingcounty.gov/assessor/esales/Glossary.aspx?type=r  
+
+
+
