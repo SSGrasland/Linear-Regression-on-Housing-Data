@@ -73,22 +73,22 @@ Model 4 has the highest r-squared value at 0.546. R-squared is a value that comm
 ## Interpreting Coefficients 
 
 
-sqft_living
-USD263.19
-sqft_living15
-USD113.04
-sqft_lawn  
-USD-1.05
-bedrooms 
-USD-47,017
-view_EXCELLENT
-USD330,266
-view_NONE
-USD-67,619
-grade_Excellent
-USD595,692
-grade_Luxury
-USD1,139,040
+sqft_living  
+USD263.19   
+sqft_living15   
+USD113.04   
+sqft_lawn     
+USD-1.05    
+bedrooms     
+USD-47,017    
+view_EXCELLENT    
+USD330,266    
+view_NONE    
+USD-67,619     
+grade_Excellent    
+USD595,692    
+grade_Luxury    
+USD1,139,040     
 
 
 
