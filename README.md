@@ -38,19 +38,26 @@ In addition to our original dataset 3 columns were constructed: hardiness zones 
 A hardiness zone is an area that is defined as having certain annual minimum temperatures, a measure which is of concern to the survival of many plants and livestock. For this project we will be using the United States Department of Agriculture (USDA) Hardiness Zone map of King County and limiting the dataset to homes in zone 8b– King County’s most temperate zone. This is done by constructing a zone column based on values taken from the longitude column.
 A hardiness zone is an area that is defined as having certain annual minimum temperatures, a measure which is of concern to the survival of many plants and livestock. For this project we will be using the United States Department of Agriculture (USDA) Hardiness Zone map of King County and limiting the dataset to homes in zone 8b– King County’s most temperate zone. This is done by constructing a zone column based on values taken from the longitude column.
 
+![King County Hardiness Zones](https://github.com/SSGrasland/Linear-Regression-on-Housing-Data/blob/main/images/map.jpg))
+
  
 ## Data Analysis
 Our variables do not have a normal distribution and the scales are not consistent. Our independent variable ‘price’ has a significant positive skew which we will need to adjust before modeling.
+
+![Histogram](https://github.com/SSGrasland/Linear-Regression-on-Housing-Data/blob/main/images/histogram.png)
+![Categorical Variables](https://github.com/SSGrasland/Linear-Regression-on-Housing-Data/blob/main/images/categorical%20variables.png)
  
 A heatmap of correlation was created to see what variables most correlated with our target variable price. This was also done to check for multicollinearity of features (i. E. if two variables are highly correlated with one another, like the number of bathrooms and bedrooms.) 
- 
+
+![Heatmap](https://github.com/SSGrasland/Linear-Regression-on-Housing-Data/blob/main/images/variable%20correlation.png)
  
 We also wanted to check that the variables used for modeling passed the assumptions of linear regression. These assumptions are:
 -The variable should have a linear relationship with price.
 -The variable should be homoscedastic meaning that an equal amount of variance should be seen around the regression line.
 -There should be a normal distribution.
  
- 
+ ![Pairplot](https://github.com/SSGrasland/Linear-Regression-on-Housing-Data/blob/main/images/pairplot.png)
+ ![PPlot](https://github.com/SSGrasland/Linear-Regression-on-Housing-Data/blob/main/images/probability%20plot.png)
 
 ## Modeling
 For modeling OLS regression was used and two values were looked at in the summary: R-squared and p-value. R-squared is a value that communicates how much of the variability around y ('price' in this case) can be explained by the model.  P-value is used to check the null hypothesis, in this case the null hypothesis was that there is no relationship between price and a chosen variable, if the p-value does not fall below 0.05 the null hypothesis cannot be rejected. 
@@ -69,7 +76,9 @@ For our final model we added the most correlated to price dummy variables 'grade
  
 ### Final model
 Model 4 has the highest r-squared value at 0.546. R-squared is a value that communicates how much of the variability around y ('price' in this case) can be explained by the model. In this case it means that 54.6% of the variability in our model can be explained by the variable we included. However, since this model does contain several log transformed variables we will go ahead and run it again using data that hasn't been log transformed to simplify interpreting coefficients. 
- 
+
+[Final Model](https://github.com/SSGrasland/Linear-Regression-on-Housing-Data/blob/main/images/final%20mode.png)
+
 ## Interpreting Coefficients 
 
 
